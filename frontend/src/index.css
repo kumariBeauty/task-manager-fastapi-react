@@ -64,7 +64,7 @@ h1 { margin: 0 0 24px; font-size: 1.75rem; }
 .task-desc { font-size: 0.875rem; color: var(--muted); overflow-wrap: anywhere; }
 .task.done .task-title { text-decoration: line-through; color: var(--muted); }
 
-.delete {
+.icon-btn {
   border: none;
   background: none;
   color: var(--muted);
@@ -73,7 +73,26 @@ h1 { margin: 0 0 24px; font-size: 1.75rem; }
   padding: 4px 8px;
   border-radius: 6px;
 }
-.delete:hover { color: var(--danger); background: #fef2f2; }
+.icon-btn:hover { color: var(--accent); background: #eff6ff; }
+.icon-btn.delete:hover { color: var(--danger); background: #fef2f2; }
+
+.edit-form { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.edit-form input {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.edit-actions { display: flex; gap: 8px; }
+.edit-actions button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.save { border: none; background: var(--accent); color: white; }
+.save:disabled { opacity: 0.5; cursor: not-allowed; }
+.cancel { border: 1px solid var(--border); background: var(--card); color: var(--text); }
 
 .muted { color: var(--muted); }
 .error {

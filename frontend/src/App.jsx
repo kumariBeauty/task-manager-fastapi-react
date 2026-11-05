@@ -27,13 +27,17 @@ export default function App() {
     }
   }
 
-  async function handleToggle(task) {
+  // Used for both the checkbox ({ completed }) and editing ({ title, description }).
+  // Returns the updated task, or null if the request failed.
+  async function handleUpdate(id, changes) {
     try {
-      const updated = await updateTask(task.id, { completed: !task.completed })
+      const updated = await updateTask(id, changes)
       setTasks((prev) => prev.map((t) => (t.id === updated.id ? updated : t)))
       setError(null)
+      return updated
     } catch (err) {
       setError(err.message)
+      return null
     }
   }
 
@@ -67,7 +71,7 @@ export default function App() {
               <TaskItem
                 key={task.id}
                 task={task}
-                onToggle={handleToggle}
+                onUpdate={handleUpdate}
                 onDelete={handleDelete}
               />
             ))}
